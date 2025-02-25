@@ -113,6 +113,7 @@ export default function NewMusicPlayer() {
         style={{ margin: "0 auto" }}
         className="musicplayer flex flex-col items-center justify-center p-4 bg-gray-900 text-white shadow-lg bg-gradient-to-b from-gray-500 to-black"
       >
+        <div className="container">
         <TrackBar audioRef={audioRef} />
 
         <div className="musicplayer_playlist flex w-full">
@@ -171,6 +172,7 @@ export default function NewMusicPlayer() {
               </li>
             ))}
           </ol>
+        </div>
         </div>
       </div>
     </>

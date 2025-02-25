@@ -1,0 +1,50 @@
+{
+  "name": "webar-shopify-theme",
+  "description": "Custom Shopify theme",
+  "version": "1.0.0",
+  "engines": {
+    "node": "17.4.0",
+    "npm": "8.3.1"
+  },
+  "scripts": {
+    "build": "npx webpack --env mode=prod",
+    "dev": "npx webpack --env mode=dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webar-52100/webar-shopify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webar-52100/webar-shopify/issues"
+  },
+  "homepage": "https://github.com/webar-52100/webar-shopify",
+  "dependencies": {
+    "ajaxinate": "^3.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "lucide-react": "^0.475.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.56.2",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-webpack-plugin": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint-loader": "^4.0.2",
+    "html-webpack-plugin": "^5.6.3",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.8.0"
+  }
+}

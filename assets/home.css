@@ -1,0 +1,69 @@
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./client/src/components/countdown-banner/countdownBanner.css ***!
+  \*************************************************************************************************************************************************************************************************************/
+.countdownbanner {
+  text-align: center;
+  background-color: #9ebeff;
+  border: 1px solid #0055ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdownbanner-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .countdownbanner-logo {
+    animation: countdownbanner-logo-spin infinite 20s linear;
+  }
+}
+.countdownbanner-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.countdownbanner-link {
+  color: #61dafb;
+}
+
+@keyframes countdownbanner-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.countdownbanner-timer {
+  display: flex;
+  margin: 0 auto;
+}
+
+.countdownbanner-cell {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  margin: 4px;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./client/src/components/simple-react-component/simpleComponent.css ***!
+  \*******************************************************************************************************************************************************************************************************************/
+.simple-component {
+  margin: 10px;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaG9tZS5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7QUFDRjs7QUFFQTtFQUNFO0VBQ0E7QUFDRjs7QUFFQTtFQUNFO0lBQ0U7RUFDRjtBQUNGO0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0FBQUY7O0FBR0E7RUFDRTtBQUFGOztBQUdBO0VBQ0U7SUFDRTtFQUFGO0VBR0E7SUFDRTtFQURGO0FBQ0Y7QUFJQTtFQUNFO0VBQ0E7QUFGRjs7QUFLQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtBQUZGLEM7Ozs7QUN6REE7RUFDRTtBQUNGLEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly93ZWJhci1zaG9waWZ5LXRoZW1lLy4vY2xpZW50L3NyYy9jb21wb25lbnRzL2NvdW50ZG93bi1iYW5uZXIvY291bnRkb3duQmFubmVyLmNzcyIsIndlYnBhY2s6Ly93ZWJhci1zaG9waWZ5LXRoZW1lLy4vY2xpZW50L3NyYy9jb21wb25lbnRzL3NpbXBsZS1yZWFjdC1jb21wb25lbnQvc2ltcGxlQ29tcG9uZW50LmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIuY291bnRkb3duYmFubmVyIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjOWViZWZmO1xuICBib3JkZXI6IDFweCBzb2xpZCAjMDA1NWZmO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuXG4uY291bnRkb3duYmFubmVyLWxvZ28ge1xuICBoZWlnaHQ6IDQwdm1pbjtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbkBtZWRpYSAocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjogbm8tcHJlZmVyZW5jZSkge1xuICAuY291bnRkb3duYmFubmVyLWxvZ28ge1xuICAgIGFuaW1hdGlvbjogY291bnRkb3duYmFubmVyLWxvZ28tc3BpbiBpbmZpbml0ZSAyMHMgbGluZWFyO1xuICB9XG59XG5cbi5jb3VudGRvd25iYW5uZXItaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcbiAgbWluLWhlaWdodDogMTAwdmg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBmb250LXNpemU6IGNhbGMoMTBweCArIDJ2bWluKTtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4uY291bnRkb3duYmFubmVyLWxpbmsge1xuICBjb2xvcjogIzYxZGFmYjtcbn1cblxuQGtleWZyYW1lcyBjb3VudGRvd25iYW5uZXItbG9nby1zcGluIHtcbiAgZnJvbSB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7XG4gIH1cblxuICB0byB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcbiAgfVxufVxuXG4uY291bnRkb3duYmFubmVyLXRpbWVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG5cbi5jb3VudGRvd25iYW5uZXItY2VsbCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgd2lkdGg6IDY0cHg7XG4gIGhlaWdodDogNjRweDtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luOiA0cHg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBmb250LXNpemU6IDQycHg7XG59XG4iLCIuc2ltcGxlLWNvbXBvbmVudCB7XG4gIG1hcmdpbjogMTBweDtcbn1cbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==*/

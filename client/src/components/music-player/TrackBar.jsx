@@ -244,7 +244,7 @@ export default function TrackBar({ audioRef }) {
                   max={duration}
                   step="0.1"
                   value={currentTime}
-                  onChange={throttle(handleSeek, 1000)}
+                  onChange={handleSeek}
                   className="w-full mt-2"
                 />
               </span>

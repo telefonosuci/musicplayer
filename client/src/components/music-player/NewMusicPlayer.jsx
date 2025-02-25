@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import "./musicPlayer.css";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 import TrackBar from "./TrackBar";
-
+import { playPauseHandler } from "../../helpers/player";
 export default function NewMusicPlayer() {
   const {
     playlist,
@@ -107,17 +107,6 @@ export default function NewMusicPlayer() {
     };
   }, [currentTrack]);
 
-  const playPauseHandler = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current
-        .play()
-        .catch((err) => console.warn("Playback blocked", err));
-    }
-    setIsPlaying(!isPlaying);
-  };
-
   return (
     <>
       <div
@@ -147,7 +136,7 @@ export default function NewMusicPlayer() {
               ))}
             </div>
             <button
-              onClick={playPauseHandler}
+              onClick={playPauseHandler(audioRef, isPlaying, setIsPlaying)}
               className="bg-green-500 text-white my-2 px-6 py-1 rounded-full hover:bg-green-600 transition"
             >
               {isPlaying ? "PAUSE" : "PLAY"}

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
+import { playPauseHandler } from "../../helpers/player";
 
 export default function TrackBar({ audioRef }) {
   const {
@@ -21,17 +22,6 @@ export default function TrackBar({ audioRef }) {
     duration,
     setDuration,
   } = useContext(PlaylistContext);
-
-  const playPauseHandler = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current
-        .play()
-        .catch((err) => console.warn("Playback blocked", err));
-    }
-    setIsPlaying(!isPlaying);
-  };
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -146,7 +136,7 @@ export default function TrackBar({ audioRef }) {
           </button>
 
           <button
-            onClick={playPauseHandler}
+            onClick={playPauseHandler(audioRef, isPlaying, setIsPlaying)}
             className="p-2 w-10 h-10 bg-transparent border-2 border-white text-white rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
           >
             {isPlaying ? (

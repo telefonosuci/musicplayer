@@ -120,7 +120,7 @@ export default function NewMusicPlayer() {
             <img
               src={playlist.image}
               alt="Description"
-              className="w-48 h-48 object-cover"
+              className="w-full object-cover"
             />
           </div>
 
@@ -146,7 +146,7 @@ export default function NewMusicPlayer() {
 
         <div className="mt-4 w-full">
           <ol className="musicplayer_songlist list-decimal list-inside mt-2">
-            <li className="musicplayer_songlistitem cursor-pointer m-3">
+            <li className="musicplayer_songlistitem cursor-pointer my-3">
               <div className="p-1 flex justify-between">
                 <span className="musicplayer_songlistcell text-left">TITLE</span>
                 <span className="musicplayer_songlistcell text-left">ARTIST</span>
@@ -157,7 +157,7 @@ export default function NewMusicPlayer() {
             {playlist.tracks.map((track, index) => (
               <li
                 key={index}
-                className={`musicplayer_songlistitem cursor-pointer m-3 ${
+                className={`musicplayer_songlistitem cursor-pointer my-3 ${
                   index === currentTrack ? "underline" : "text-white"
                 }`}
                 onClick={() => setCurrentTrack(index)}
@@ -166,7 +166,7 @@ export default function NewMusicPlayer() {
                   <span className="musicplayer_songlistcell text-left">{track.title}</span>
                   <span className="musicplayer_songlistcell text-left">{track.artist}</span>
 
-                  <span className="musicplayer_songlistcell text-left">{track.album}</span>
+                  <span className="musicplayer_songlistcell text-right">{track.album}</span>
                 </div>
               </li>
             ))}

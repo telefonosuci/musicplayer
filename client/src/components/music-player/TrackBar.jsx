@@ -1,6 +1,7 @@
 import React, { useContext, useCallback } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 import { playPauseHandler, getRandomTrack } from "../../helpers/player";
+import { throttle } from "../../helpers/functions";
 
 export default function TrackBar({ audioRef }) {
   const {
@@ -31,11 +32,14 @@ export default function TrackBar({ audioRef }) {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  const handleSeek = useCallback((e) => {
-    const newTime = parseFloat(e.target.value);
-    audioRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
-  }, [audioRef]);
+  const handleSeek = useCallback(
+    throttle((e) => {
+      const newTime = parseFloat(e.target.value);
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }, 100),
+    [audioRef]
+  );
 
   const fastForward = useCallback(() => {
     const newTime = currentTime + 10;
@@ -240,7 +244,7 @@ export default function TrackBar({ audioRef }) {
                   max={duration}
                   step="0.1"
                   value={currentTime}
-                  onChange={handleSeek}
+                  onChange={throttle(handleSeek, 1000)}
                   className="w-full mt-2"
                 />
               </span>

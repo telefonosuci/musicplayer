@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 import { playPauseHandler, getRandomTrack } from "../../helpers/player";
 
@@ -31,33 +31,33 @@ export default function TrackBar({ audioRef }) {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  const handleSeek = (e) => {
+  const handleSeek = useCallback((e) => {
     const newTime = parseFloat(e.target.value);
     audioRef.current.currentTime = newTime;
     setCurrentTime(newTime);
-  };
+  }, [audioRef]);
 
-  const fastForward = () => {
+  const fastForward = useCallback(() => {
     const newTime = currentTime + 10;
     audioRef.current.currentTime = newTime;
     setCurrentTime(newTime);
-  };
+  }, [currentTime, audioRef]);
 
-  const handleVolumeChange = (e) => {
+  const handleVolumeChange = useCallback((e) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     audioRef.current.volume = newVolume;
-  };
+  }, [audioRef]);
 
-  const toggleMute = () => {
+  const toggleMute = useCallback(() => {
     setIsMuted((prevMuted) => {
       const newMutedState = !prevMuted;
       audioRef.current.muted = newMutedState;
       return newMutedState;
     });
-  };
+  }, [audioRef]);
 
-  const changeTrack = (direction) => {
+  const changeTrack = useCallback((direction) => {
     if (currentTime > 0 && direction < 0) audioRef.current.currentTime = 0;
     else {
 
@@ -71,7 +71,7 @@ export default function TrackBar({ audioRef }) {
       }
       setCurrentTrack(newTrack);
     }
-  };
+  }, [currentTime, isShuffle, currentTrack, playlist, audioRef]);
 
 
   return (

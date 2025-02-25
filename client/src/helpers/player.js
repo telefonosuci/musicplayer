@@ -10,3 +10,10 @@ export const playPauseHandler = (audioRef, isPlaying, setIsPlaying) => {
     setIsPlaying(!isPlaying);
   }
 };
+export const getRandomTrack = (currentTrack, playlistTracksLength) => {
+  let randomTrack;
+  do {
+    randomTrack = Math.floor(Math.random() * playlistTracksLength);
+  } while (randomTrack === currentTrack);
+  return randomTrack;
+};

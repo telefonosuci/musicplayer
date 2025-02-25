@@ -13,14 +13,18 @@
 /* Animated loading effect */
 @keyframes loadingAnimation {
   0% {
-    background: rgba(187, 169, 169, 0.363);;
+    background: rgba(187, 169, 169, 0.363);
   }
-  50% {
-    background: rgba(184, 182, 182, 0.644);;
+  33% {
+    background: rgba(184, 182, 182, 0.644);
+  }
+  66% {
+    background: rgba(230, 228, 228, 0.884);
   }
   100% {
-    background: rgba(230, 228, 228, 0.884);;
+    background: rgba(184, 182, 182, 0.644);
   }
+
 }
 
 .musicplayer .progress-bar {
@@ -78,6 +82,9 @@
   /*margin: 0 10px 0 10px;
   */
   padding: 0 10px 0 10px;
+}
+.musicplayer_songlistcell {
+  width: 200px;
 }
 
 input[type="range"] {

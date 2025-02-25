@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import "./musicPlayer.css";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 import TrackBar from "./TrackBar";
-import { playPauseHandler } from "../../helpers/player";
+import { playPauseHandler, getRandomTrack } from "../../helpers/player";
 export default function NewMusicPlayer() {
   const {
     playlist,
@@ -25,14 +25,6 @@ export default function NewMusicPlayer() {
   } = useContext(PlaylistContext);
 
   const audioRef = useRef(new Audio(playlist.tracks[currentTrack].src));
-
-  const getRandomTrack = () => {
-    // return Math.floor(Math.random() * tracks.length);
-    const validIndexes = playlist.tracks
-      .map((_, index) => index)
-      .filter((i) => i !== currentTrack);
-    return validIndexes[Math.floor(Math.random() * validIndexes.length)];
-  };
 
   /*
   useEffect(() => {
@@ -72,40 +64,40 @@ export default function NewMusicPlayer() {
     audio.addEventListener("error", handleError);
 
     const updateTime = () => {
-      //console.log("Timeupdate ", audio.currentTime);
       setCurrentTime(audio.currentTime);
     };
 
     audio.addEventListener("timeupdate", updateTime);
-    //audio.addEventListener("progress", updateTime);
-
-    const trackEnded = () => {
-      console.log("Track has finished playing.");
-
-      let nextTrack;
-
-      if (!isShuffle) {
-        nextTrack = currentTrack + 1;
-        console.log("Get next track, isshuffle is ", isShuffle);
-      } else {
-        nextTrack = getRandomTrack();
-        console.log("Get random track, isshuffle is ", isShuffle);
-        console.log("Get random track ", nextTrack);
-      }
-      setCurrentTrack(nextTrack);
-    };
-
-    audio.addEventListener("ended", trackEnded);
-
     audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
 
     return () => {
       audio.removeEventListener("canplaythrough", handleCanPlayThrough);
       audio.removeEventListener("error", handleError);
       audio.removeEventListener("timeupdate", updateTime);
-      audio.removeEventListener("ended", updateTime);
     };
   }, [currentTrack]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    const trackEnded = () => {
+
+      let nextTrack;
+
+      if (isShuffle) {
+        nextTrack = getRandomTrack(currentTrack, playlist.tracks.length);
+      } else {
+        nextTrack = currentTrack + 1;
+      }
+      setCurrentTrack(nextTrack);
+    };
+
+    audio.addEventListener("ended", trackEnded);
+
+    return () => {
+      audio.removeEventListener("ended", trackEnded);
+    };
+  }, [isShuffle]);
 
   return (
     <>
@@ -148,9 +140,9 @@ export default function NewMusicPlayer() {
           <ol className="musicplayer_songlist list-decimal list-inside mt-2">
             <li className="musicplayer_songlistitem cursor-pointer m-3">
               <div className="p-1 flex justify-between">
-                <span>TITLE</span>
-                <span>ARTIST</span>
-                <span>ALBUM</span>
+                <span className="musicplayer_songlistcell text-left">TITLE</span>
+                <span className="musicplayer_songlistcell text-left">ARTIST</span>
+                <span className="musicplayer_songlistcell text-left">ALBUM</span>
               </div>
             </li>
 
@@ -163,10 +155,10 @@ export default function NewMusicPlayer() {
                 onClick={() => setCurrentTrack(index)}
               >
                 <div className="p-1 flex justify-between">
-                  <span>{track.title}</span>
-                  <span>{track.artist}</span>
+                  <span className="musicplayer_songlistcell text-left">{track.title}</span>
+                  <span className="musicplayer_songlistcell text-left">{track.artist}</span>
 
-                  <span>{track.album}</span>
+                  <span className="musicplayer_songlistcell text-left">{track.album}</span>
                 </div>
               </li>
             ))}

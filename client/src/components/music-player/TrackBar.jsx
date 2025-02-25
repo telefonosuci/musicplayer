@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
-import { playPauseHandler } from "../../helpers/player";
+import { playPauseHandler, getRandomTrack } from "../../helpers/player";
 
 export default function TrackBar({ audioRef }) {
   const {
@@ -32,18 +32,12 @@ export default function TrackBar({ audioRef }) {
   const handleSeek = (e) => {
     const newTime = parseFloat(e.target.value);
     audioRef.current.currentTime = newTime;
-
-    console.log("New time ", newTime);
-
     setCurrentTime(newTime);
   };
 
   const fastForward = () => {
     const newTime = currentTime + 10;
     audioRef.current.currentTime = newTime;
-
-    console.log("New time ", newTime);
-
     setCurrentTime(newTime);
   };
 
@@ -64,12 +58,19 @@ export default function TrackBar({ audioRef }) {
   const changeTrack = (direction) => {
     if (currentTime > 0 && direction < 0) audioRef.current.currentTime = 0;
     else {
-      let newTrack =
+
+      let newTrack;
+      if(isShuffle){
+        newTrack = getRandomTrack(currentTrack, playlist.tracks.length);
+      } else {
+        newTrack =
         (currentTrack + direction + playlist.tracks.length) %
         playlist.tracks.length;
+      }
       setCurrentTrack(newTrack);
     }
   };
+
 
   return (
     <div className="musicplayer_trackbar">

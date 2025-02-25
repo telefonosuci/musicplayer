@@ -30,6 +30,7 @@ export const PlaylistProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isShuffle, setIsShuffle] = useState(false);
+  const [isRepeat, setIsRepeat] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(1);
@@ -46,6 +47,7 @@ export const PlaylistProvider = ({ children }) => {
       isPlaying,
       setIsPlaying,
       isShuffle, setIsShuffle,
+      isRepeat, setIsRepeat,
       currentTime, setCurrentTime,
       isMuted, setIsMuted,
       volume, setVolume,

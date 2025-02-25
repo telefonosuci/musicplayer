@@ -13,6 +13,8 @@ export default function TrackBar({ audioRef }) {
     setIsPlaying,
     isShuffle,
     setIsShuffle,
+    isRepeat,
+    setIsRepeat,
     currentTime,
     setCurrentTime,
     isMuted,
@@ -88,7 +90,25 @@ export default function TrackBar({ audioRef }) {
       <div className="musicplayer_trackbar_currenttime p-2">
         {/* Barra di avanzamento */}
 
-        <div className="flex gap-4 justify-center">
+        <div className="flex gap-2 justify-center">
+          <button onClick={() => setIsRepeat(!isRepeat)} className={isRepeat ? "p-2  rounded-full border-2" : "p-2 rounded-full"}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M17 2l4 4-4 4"></path>
+              <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+              <path d="M7 22l-4-4 4-4"></path>
+              <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+            </svg>
+          </button>
           <button onClick={() => setIsShuffle(!isShuffle)} className="p-2">
             {isShuffle ? (
               <svg
@@ -138,7 +158,7 @@ export default function TrackBar({ audioRef }) {
 
           <button
             onClick={playPauseHandler(audioRef, isPlaying, setIsPlaying)}
-            className="p-2 w-10 h-10 bg-transparent border-2 border-white text-white rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
+            className="p-2 bg-transparent border-2 border-white text-white rounded-full flex items-center justify-center hover:bg-white hover:text-black transition"
           >
             {isPlaying ? (
               <svg

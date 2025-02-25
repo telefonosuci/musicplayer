@@ -14,6 +14,8 @@ export default function NewMusicPlayer() {
     setIsPlaying,
     isShuffle,
     setIsShuffle,
+    isRepeat,
+    setIsRepeat,
     currentTime,
     setCurrentTime,
     isMuted,
@@ -84,8 +86,14 @@ export default function NewMusicPlayer() {
 
       let nextTrack;
 
-      if (isShuffle) {
+
+      if (isRepeat) {
+        nextTrack = currentTrack;
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(err => console.warn("Playback failed:", err));
+      } else if (isShuffle) {
         nextTrack = getRandomTrack(currentTrack, playlist.tracks.length);
+
       } else {
         nextTrack = currentTrack + 1;
       }
@@ -97,7 +105,7 @@ export default function NewMusicPlayer() {
     return () => {
       audio.removeEventListener("ended", trackEnded);
     };
-  }, [isShuffle]);
+  }, [isShuffle, isRepeat, currentTrack]);
 
   return (
     <>

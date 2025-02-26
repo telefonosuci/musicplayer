@@ -34,7 +34,13 @@ export default function TrackBar({ audioRef }) {
   const handleSeek = useCallback(
     throttle((e) => {
       setIsLoading(true);
+
+      if (!isPlaying) {
+        audioRef.current.pause();
+      }
+
       const newTime = parseFloat(e.target.value);
+
       audioRef.current.currentTime = newTime;
       setCurrentTime(newTime);
     }, 100),
@@ -43,6 +49,11 @@ export default function TrackBar({ audioRef }) {
 
   const fastForward = useCallback(() => {
     setIsLoading(true);
+
+    if (!isPlaying) {
+      audioRef.current.pause();
+    }
+
     const newTime = currentTime + 10;
     audioRef.current.currentTime = newTime;
     setCurrentTime(newTime);

@@ -63,8 +63,23 @@ export default function TrackBar({ audioRef }) {
   }, [audioRef]);
 
   const changeTrack = useCallback((direction) => {
-    if (currentTime > 0 && direction < 0) audioRef.current.currentTime = 0;
-    else {
+    if (currentTime > 0 && direction < 0) {
+
+      audioRef.current.pause();
+
+      if (isPlaying) {
+        audioRef.current.currentTime = 0;
+
+        audioRef.current
+        .play()
+        .then(() => console.log("Playback started successfully"))
+        .catch((err) => console.warn("Playback blocked", err));
+
+      } else {
+        audioRef.current.currentTime = 0;
+      }
+
+    } else {
 
       let newTrack;
       if(isShuffle){

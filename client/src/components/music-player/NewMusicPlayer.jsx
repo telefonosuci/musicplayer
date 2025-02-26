@@ -60,7 +60,7 @@ export default function NewMusicPlayer() {
       audio.load();
 
       setTimeout(() => {
-        if (isPlaying) audio.play().catch(() => {});
+        if (isPlayingRef.current) audio.play().catch(() => {});
       }, 2000);
     };
 

@@ -140,7 +140,7 @@ export default function NewMusicPlayer() {
           </div>
         </div>
 
-        <TrackList />
+        <TrackList playlist={playlist} />
         </div>
       </div>
     </>

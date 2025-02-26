@@ -2,10 +2,7 @@ import React, { useContext } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 import TrackItem from "./TrackItem";
 
-export default function TrackList() {
-  const {
-    playlist,
-  } = useContext(PlaylistContext);
+ const TrackList = React.memo(({ playlist }) => {
 
   return (
     <div className="mt-4 w-full">
@@ -24,4 +21,6 @@ export default function TrackList() {
       </ol>
     </div>
   );
-}
+});
+
+export default TrackList;

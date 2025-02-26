@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 
-export default function TrackItem({track, index}) {
-
+const TrackItem = ({track, index}) => {
   const {
       currentTrack,
       setCurrentTrack
@@ -27,4 +26,6 @@ export default function TrackItem({track, index}) {
       </div>
     </li>
   );
-}
+};
+
+export default TrackItem;

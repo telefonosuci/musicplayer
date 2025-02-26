@@ -20,6 +20,8 @@ export default function NewMusicPlayer() {
 
   //const audioRef = useRef(new Audio(playlist.tracks[currentTrack].src));
   const audioRef = useRef(null);
+  const isPlayingRef = useRef(isPlaying);
+
   /*
   useEffect(() => {
     // Preload all tracks
@@ -31,6 +33,10 @@ export default function NewMusicPlayer() {
   */
 
   useEffect(() => {
+    isPlayingRef.current = isPlaying;
+  }, [isPlaying]);
+
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -40,7 +46,7 @@ export default function NewMusicPlayer() {
 
     const handleCanPlayThrough = () => {
       setIsLoading(false);
-      if (isPlaying) {
+      if (isPlayingRef.current) {
         audio
           .play()
           .then(() => console.log("Playback started successfully"))

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { PlaylistContext } from "../../contexts/PlaylistProvider";
+import React from "react";
 import TrackItem from "./TrackItem";
 
  const TrackList = React.memo(({ playlist }) => {

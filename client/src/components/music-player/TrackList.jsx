@@ -1,13 +1,10 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
-import { playPauseHandler, getRandomTrack } from "../../helpers/player";
-import { throttle } from "../../helpers/functions";
+import TrackItem from "./TrackItem";
 
 export default function TrackList() {
   const {
     playlist,
-    currentTrack,
-    setCurrentTrack,
   } = useContext(PlaylistContext);
 
   return (
@@ -22,26 +19,7 @@ export default function TrackList() {
         </li>
 
         {playlist.tracks.map((track, index) => (
-          <li
-            key={index}
-            className={`musicplayer_songlistitem cursor-pointer my-3 ${
-              index === currentTrack ? "underline" : "text-white"
-            }`}
-            onClick={() => setCurrentTrack(index)}
-          >
-            <div className="p-1 flex justify-between">
-              <span className="musicplayer_songlistcell text-left">
-                {track.title}
-              </span>
-              <span className="musicplayer_songlistcell text-left">
-                {track.artist}
-              </span>
-
-              <span className="musicplayer_songlistcell text-right">
-                {track.album}
-              </span>
-            </div>
-          </li>
+          <TrackItem key={index} track={track} index={index}/>
         ))}
       </ol>
     </div>

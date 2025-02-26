@@ -20,7 +20,7 @@ const TrackItem = ({track, index}) => {
           {track.artist}
         </span>
 
-        <span className="musicplayer_songlistcell text-right">
+        <span className="musicplayer_songlistcell text-left">
           {track.album}
         </span>
       </div>

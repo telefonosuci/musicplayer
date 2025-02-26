@@ -50,8 +50,10 @@ export default function NewMusicPlayer() {
 
     const handleError = () => {
       console.warn("Error loading track. Retrying in 2 seconds...");
+
+      audio.load();
+
       setTimeout(() => {
-        audio.load();
         if (isPlaying) audio.play().catch(() => {});
       }, 2000);
     };
@@ -63,13 +65,18 @@ export default function NewMusicPlayer() {
       setCurrentTime(audio.currentTime);
     };
 
+    const loadedMetadata = () => {
+      setDuration(audio.duration);
+    }
+
     audio.addEventListener("timeupdate", updateTime);
-    audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
+    audio.addEventListener("loadedmetadata", loadedMetadata);
 
     return () => {
       audio.removeEventListener("canplaythrough", handleCanPlayThrough);
       audio.removeEventListener("error", handleError);
       audio.removeEventListener("timeupdate", updateTime);
+      audio.removeEventListener("loadedmetadata", loadedMetadata);
     };
   }, [currentTrack]);
 

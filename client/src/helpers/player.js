@@ -5,11 +5,13 @@ export const playPauseHandler = (audioRef, isPlaying, setIsPlaying) => {
     } else {
       audioRef.current
         .play()
+        .then(() => console.log("Playback started successfully"))
         .catch((err) => console.warn("Playback blocked", err));
     }
     setIsPlaying(!isPlaying);
   }
 };
+
 export const getRandomTrack = (currentTrack, playlistTracksLength) => {
   let randomTrack;
   do {

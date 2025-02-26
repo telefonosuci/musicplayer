@@ -14,21 +14,13 @@ export default function NewMusicPlayer() {
     isPlaying,
     setIsPlaying,
     isShuffle,
-    setIsShuffle,
     isRepeat,
-    setIsRepeat,
-    currentTime,
     setCurrentTime,
-    isMuted,
-    setIsMuted,
-    volume,
-    setVolume,
-    duration,
     setDuration,
   } = useContext(PlaylistContext);
 
-  const audioRef = useRef(new Audio(playlist.tracks[currentTrack].src));
-
+  //const audioRef = useRef(new Audio(playlist.tracks[currentTrack].src));
+  const audioRef = useRef(null);
   /*
   useEffect(() => {
     // Preload all tracks
@@ -41,6 +33,8 @@ export default function NewMusicPlayer() {
 
   useEffect(() => {
     const audio = audioRef.current;
+    if (!audio) return;
+
     setIsLoading(true);
     audio.src = playlist.tracks[currentTrack].src;
     audio.load();
@@ -115,6 +109,7 @@ export default function NewMusicPlayer() {
         className="musicplayer flex flex-col items-center justify-center p-4 bg-gray-900 text-white shadow-lg bg-gradient-to-b from-gray-500 to-black"
       >
         <div className="container">
+        <audio ref={audioRef} src={playlist.tracks[currentTrack].src} preload="auto" />
         <TrackBar audioRef={audioRef} />
 
         <div className="musicplayer_playlist flex w-full">

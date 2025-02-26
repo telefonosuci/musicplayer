@@ -9,7 +9,6 @@ export default function TrackBar({ audioRef }) {
     currentTrack,
     setCurrentTrack,
     isLoading,
-    setIsLoading,
     isPlaying,
     setIsPlaying,
     isShuffle,
@@ -23,7 +22,6 @@ export default function TrackBar({ audioRef }) {
     volume,
     setVolume,
     duration,
-    setDuration,
   } = useContext(PlaylistContext);
 
   const formatTime = (time) => {

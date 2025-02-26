@@ -114,7 +114,7 @@ function NewMusicPlayer() {
       console.warn("Error loading track. Retrying in 2 seconds...");
       setTimeout(function () {
         audio.load();
-        if (isPlaying) audio.play()["catch"](function () {});
+        if (isPlaying) audio.play().catch(function () {});
       }, 2000);
     };
     audio.addEventListener("canplaythrough", handleCanPlayThrough);
@@ -177,22 +177,22 @@ function NewMusicPlayer() {
         return newMutedState;
       });
     };
-  
+
     const handleVolumeChange = (e) => {
       const newVolume = parseFloat(e.target.value);
       setVolume(newVolume);
       audioRef.current.volume = newVolume;
     };
-  
+
     const handleSeek = (e) => {
       const newTime = parseFloat(e.target.value);
       audioRef.current.currentTime = newTime;
-  
+
       console.log("New time ", newTime);
-  
+
       setCurrentTime(newTime);
     };
-  
+
     const formatTime = (time) => {
       const minutes = Math.floor(time / 60);
       const seconds = Math.floor(time % 60);
@@ -288,7 +288,7 @@ function TrackBar(_ref) {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play()["catch"](function (err) {
+      audioRef.current.play().catch(function (err) {
         return console.warn("Playback blocked", err);
       });
     }
@@ -30830,7 +30830,7 @@ if (
 ) {
   __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 }
-        
+
   })();
 }
 
@@ -33656,7 +33656,7 @@ if (
 ) {
   __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 }
-        
+
   })();
 }
 
@@ -34315,7 +34315,7 @@ if (
 ) {
   __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 }
-        
+
   })();
 }
 
@@ -34361,15 +34361,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _node_modules_css_loader_dist_cjs_js_musicPlayer_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./musicPlayer.css */ "./node_modules/css-loader/dist/cjs.js!./client/src/components/music-player/musicPlayer.css");
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
 
 var options = {};
 
@@ -34377,7 +34377,7 @@ options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTra
 options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
 
       options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
+
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
@@ -34662,7 +34662,7 @@ module.exports = styleTagTransform;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -34676,17 +34676,17 @@ module.exports = styleTagTransform;
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -34699,7 +34699,7 @@ module.exports = styleTagTransform;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -34711,12 +34711,12 @@ module.exports = styleTagTransform;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -34727,7 +34727,7 @@ module.exports = styleTagTransform;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -34736,12 +34736,12 @@ module.exports = styleTagTransform;
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.

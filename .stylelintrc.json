@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "indentation": null,
+    "max-empty-lines": null,
+    "no-duplicate-selectors": null,
+    "color-no-invalid-hex": null,
+    "block-no-empty": null,
+    "declaration-block-trailing-semicolon": null,
+    "string-quotes": null,
+    "selector-class-pattern": null,
+    "order/properties-alphabetical-order": null,
+    "property-no-unknown": null,
+    "selector-type-no-unknown": null,
+    "unit-no-unknown": null,
+    "comment-empty-line-before": null
+  },
+  "ignoreFiles": ["node_modules/**/*", "dist/**/*"]
+}
+

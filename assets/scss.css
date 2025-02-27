@@ -1,4 +1,14 @@
+/*!****************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./client/src/scss/components/_musicPlayer.scss ***!
+  \****************************************************************************************************************************/
+
 /*!****************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./client/src/scss/main.scss ***!
   \****************************************************************************************************************************************************************************/
+@media screen and (min-width: 482px) {
+  html, body, main, #root {
+    height: 100%;
+  }
+}
 
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2Nzcy5jc3MiLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUNFO0VBREY7SUFFSTtFQUVGO0FBQ0YsQyIsInNvdXJjZXMiOlsid2VicGFjazovL3dlYmFyLXNob3BpZnktdGhlbWUvLi9jbGllbnQvc3JjL3Njc3MvbWFpbi5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbImh0bWwsIGJvZHksIG1haW4sICNyb290IHtcbiAgQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogNDgycHgpIHtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gIH1cbn1cblxuQGltcG9ydCB1cmwoXCIuL2NvbXBvbmVudHMvX211c2ljUGxheWVyLnNjc3NcIik7XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/

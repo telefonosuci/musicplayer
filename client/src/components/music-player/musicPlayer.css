@@ -1,9 +1,3 @@
-html, body, main, #root {
-  @media screen and (min-width: 482px) {
-    height: 100%;
-  }
-}
-
 .musicplayer h1 {
   font-size: 38px;
 }

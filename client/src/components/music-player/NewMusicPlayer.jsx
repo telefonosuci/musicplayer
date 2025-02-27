@@ -102,7 +102,12 @@ export default function NewMusicPlayer() {
       } else if (isShuffle) {
         nextTrack = getRandomTrack(currentTrack, playlist.tracks.length);
       } else {
-        nextTrack = currentTrack + 1;
+
+        if (currentTrack === playlist.tracks.length - 1) {
+          nextTrack = 0;
+        } else {
+          nextTrack = currentTrack + 1;
+        }
       }
       setCurrentTrack(nextTrack);
     };

@@ -1,11 +1,16 @@
+html, body, main, #root {
+  @media screen and (min-width: 482px) {
+    height: 100%;
+  }
+}
+
 .musicplayer h1 {
   font-size: 38px;
 }
 
 .musicplayer {
   margin: 0px auto;
-  height: 100vh;
-  overflow-y: scroll;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -49,6 +54,12 @@
     }
 }
 
+.musicplayer_trackbar_fixed {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
 
 .musicplayer_playlist {
   @media screen and (max-width: 481px) {

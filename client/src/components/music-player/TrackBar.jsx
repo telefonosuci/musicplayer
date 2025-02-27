@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { PlaylistContext } from "../../contexts/PlaylistProvider";
 import { playPauseHandler, getRandomTrack } from "../../helpers/player";
 import { throttle } from "../../helpers/functions";
@@ -79,9 +79,25 @@ export default function TrackBar({ audioRef }) {
     }
   }, [currentTime, isShuffle, currentTrack, playlist, audioRef]);
 
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="musicplayer_trackbar">
+    <div className={isSticky ? "musicplayer_trackbar musicplayer_trackbar_fixed bg-gray-900" : "musicplayer_trackbar"}>
+
+
       <div className="musicplayer_trackbar_currentsong p-2 flex">
         <img
           src={playlist.tracks[currentTrack].image}

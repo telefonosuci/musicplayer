@@ -10,6 +10,7 @@ export default function NewMusicPlayer() {
     currentTrack,
     setCurrentTrack,
     setIsLoading,
+    isPlaylistLoading,
     isPlaying,
     setIsPlaying,
     isShuffle,
@@ -73,7 +74,7 @@ export default function NewMusicPlayer() {
 
     const loadedMetadata = () => {
       setDuration(audio.duration);
-    }
+    };
 
     audio.addEventListener("timeupdate", updateTime);
     audio.addEventListener("loadedmetadata", loadedMetadata);
@@ -90,17 +91,16 @@ export default function NewMusicPlayer() {
     const audio = audioRef.current;
 
     const trackEnded = () => {
-
       let nextTrack;
-
 
       if (isRepeat) {
         nextTrack = currentTrack;
         audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(err => console.warn("Playback failed:", err));
+        audioRef.current
+          .play()
+          .catch((err) => console.warn("Playback failed:", err));
       } else if (isShuffle) {
         nextTrack = getRandomTrack(currentTrack, playlist.tracks.length);
-
       } else {
         nextTrack = currentTrack + 1;
       }
@@ -116,46 +116,44 @@ export default function NewMusicPlayer() {
 
   return (
     <>
-      <div
-        style={{ margin: "0 auto" }}
-        className="musicplayer flex flex-col items-center justify-center p-4 bg-gray-900 text-white shadow-lg bg-gradient-to-b from-gray-500 to-black"
-      >
-        <div className="container">
-        <audio ref={audioRef} src={playlist.tracks[currentTrack].src} preload="auto" />
-        <TrackBar audioRef={audioRef} />
+      <audio
+        ref={audioRef}
+        src={playlist.tracks[currentTrack].src}
+        preload="auto"
+      />
 
-        <div className="musicplayer_playlist flex w-full">
-          <div className="musicplayer_playlist_image">
-            <img
-              src={playlist.image}
-              alt="Description"
-              className="w-full object-cover"
-            />
-          </div>
+      <TrackBar audioRef={audioRef} />
 
-          <div className="musicplayer_playlist_data flex-grow">
-            <h2 className="uppercase">Made for {playlist.owner}</h2>
-            <h1>{playlist.title}</h1>
-            <h3>{playlist.description}</h3>
-            <div>
-              {playlist.artists.map((artist, index) => (
-                <span key={index} className="">
-                  {artist}
-                </span>
-              ))}
-            </div>
-            <button
-              onClick={playPauseHandler(audioRef, isPlaying, setIsPlaying)}
-              className="bg-green-500 text-white my-2 px-6 py-1 rounded-full hover:bg-green-600 transition"
-            >
-              {isPlaying ? "PAUSE" : "PLAY"}
-            </button>
-          </div>
+      <div className="musicplayer_playlist flex w-full">
+        <div className="musicplayer_playlist_image">
+          <img
+            src={playlist.image}
+            alt="Description"
+            className="w-full object-cover"
+          />
         </div>
 
-        <TrackList playlist={playlist} />
+        <div className="musicplayer_playlist_data flex-grow">
+          <h2 className="uppercase">Made for {playlist.owner}</h2>
+          <h1>{playlist.title}</h1>
+          <h3>{playlist.description}</h3>
+          <div>
+            {playlist.artists.map((artist, index) => (
+              <span key={index} className="">
+                {artist}
+              </span>
+            ))}
+          </div>
+          <button
+            onClick={playPauseHandler(audioRef, isPlaying, setIsPlaying)}
+            className="bg-green-500 text-white my-2 px-6 py-1 rounded-full hover:bg-green-600 transition"
+          >
+            {isPlaying ? "PAUSE" : "PLAY"}
+          </button>
         </div>
       </div>
+
+      <TrackList playlist={playlist} />
     </>
   );
 }

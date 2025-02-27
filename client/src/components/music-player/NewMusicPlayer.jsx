@@ -133,7 +133,7 @@ export default function NewMusicPlayer() {
           />
         </div>
 
-        <div className="musicplayer_playlist_data flex-grow">
+        <div className="musicplayer_playlist_data flex-grow text-left">
           <h2 className="uppercase">Made for {playlist.owner}</h2>
           <h1>{playlist.title}</h1>
           <h3>{playlist.description}</h3>

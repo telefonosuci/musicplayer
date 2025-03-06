@@ -9,7 +9,7 @@ export const PlaylistProvider = ({ children }) => {
   const [playlist, setPlaylist] = useState({
     title: "Your daily mix",
     description: "Your favourite music, plus some new discoveries you'll love.",
-    owner: "Sintra",
+    owner: "Enrico",
     image: "assets/playlist_image.png",
     artists: ["Arctic Monkeys", "Dirty Pretty Things", "The Fratellis"],
     tracks: [

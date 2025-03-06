@@ -9,7 +9,7 @@ export const PlaylistProvider = ({ children }) => {
   const [playlist, setPlaylist] = useState({
     title: "Your daily mix",
     description: "Your favourite music, plus some new discoveries you'll love.",
-    owner: "Sintra",
+    owner: "Enrico",
     image: "assets/playlist_image.png",
     artists: ["Arctic Monkeys", "Dirty Pretty Things", "The Fratellis"],
     tracks: [
@@ -26,7 +26,7 @@ export const PlaylistProvider = ({ children }) => {
     ]
   });
 */
-  const API_URL = "https://dummyjson.com/c/8025-17da-422b-9c05";
+  const API_URL = "https://dummyjson.com/c/b586-68bf-4962-a335";
 
   const [playlist, setPlaylist] = useState({
     title: "",
